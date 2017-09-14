@@ -7,7 +7,9 @@
 // The DallasTemperature library can do all this work for you!
 // http://milesburton.com/Dallas_Temperature_Control_Library
 
-OneWire  ds(2);  // on pin 2 (a 4.7K resistor is necessary)
+#define ONE_WIRE_BUS D4
+
+OneWire ds(ONE_WIRE_BUS);  // on pin 4 (a 4.7K resistor is necessary)
 
 void setup(void) {
   Serial.begin(9600);
@@ -25,7 +27,7 @@ void loop(void) {
     Serial.println("No more addresses.");
     Serial.println();
     ds.reset_search();
-    delay(250);
+    delay(550);
     return;
   }
 
